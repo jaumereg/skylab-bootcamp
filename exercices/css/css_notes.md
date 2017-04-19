@@ -157,5 +157,29 @@ clear: left/right/**both** (devuelve el natural float)
 <img src="">
 
 ####Mover elementos
-position: relative;
+position: relative; Posiciona a partir de su posicion relativa.
 top: 27px;
+position: absolute; Posiciona en referencia al body, o al elemento que tenga posicion relativa.
+position: fixed; Aunque el usuario haga scroll, permanece en su posicion fija.
+
+####Rutas
+<img src="img/coffee.png">
+../img/coffee.png Va al padre y desde ahi entra en la carpeta img y abre el archivo coffee.png
+
+####Flexbox
+- Propiedades del padre (las heredan los hijos)
+display: flex;
+display: none; Para ocultar
+flex-direction: row(default)/row-reverse/column/column-reverse
+flex-wrap: nowrap(default)/wrap(-reverse) Saltan línea si no caben
+justify-content: center/space-between/flex-end/...
+align-items: stretch(default)/flex-start/flex-end/center
+align-content
+
+- Propiedades de los hijos
+align-self: flex-end/...
+
+####Media Query
+
+Activame estas reglas cuando la resolucion de la pantalla sea "x".
+Cómo? @media (min-width: 700px) and (max-width: 1000px)
