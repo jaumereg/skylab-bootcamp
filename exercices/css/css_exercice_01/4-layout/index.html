@@ -1,44 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-		header { color: white; background-color: #004095; font-family: Arial, sans-serif; margin: 0px; }
-		nav { color: red; background-color: #CBD086; font-family: "Times New Roman", serif; border-color: black; border: 1px solid black; width: 15%; }
-		article { color: black; background-color: #56FAFF; font-family: "Times New Roman", serif; clear: both; width: 15%; }
-	</style>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    header {
+        color: white;
+        background-color: #004095;
+        font-family: Arial, sans-serif;
+        height: 35px;
+        width: 670px;
+    }
+    
+    h1 {
+        margin: 0px;
+    }
+    
+    h2 {
+        margin: 15px;
+    }
+    
+    nav {
+        color: red;
+        background-color: #CBD086;
+        font-family: "Times New Roman", serif;
+        border-color: black;
+        border: 1px;
+        border-color: black;
+        border-style: solid;
+        height: 120px;
+        width: 150px;
+    }
+    
+    article {
+        color: black;
+        background-color: #56FAFF;
+        font-family: "Times New Roman", serif;
+        height: 460px;
+        width: 150px;
+        margin: 0px 15px 0px 0px;
+    }
+    
+    article p {
+        padding: 15px;
+        margin: 0px;
+        font-size: 14px;
+    }
+    
+    section {
+        font-family: Arial, sans-serif;
+        width: 500px;
+        float: left;
+        margin: 15px 0px 0px 0px;
+    }
+    
+    section p {
+        font-size: 12px;
+    }
+    
+    .navigation {
+        float: left;
+    }
+    
+    footer {
+        color: white;
+        background-color: navy;
+        font-family: Arial, sans-serif;
+        font-size: 10px;
+        height: 40px;
+        width: 670px;
+        clear: both;
+    }
+    
+    footer p {
+        padding: 5px;
+    }
+    
+    img {
+        height: 200px;
+        width: 280px;
+    }
+    
+    .left {
+        float: left;
+        margin: 0px 15px 15px 0px;
+    }
+    
+    .right {
+        float: right;
+        margin: 15px 0px 15px 15px;
+    }
+    </style>
 </head>
+
 <body>
-<header>
-	<h1> Exercise 5 - CSS Layout </h1>
-</header>
-<nav>
-	<ul>
-		<li>DeVille Coffee</li>
-		<li>Link two</li>
-		<li>Link three</li>
-		<li>Link four</li>
-	</ul>
-</nav>
-<section>
-	
-</section>
-<article>
-	<p>The above links demonstrate a basic navigational structure using an
-unordered list styled with CSS. Use this as a starting point and modify
-the properties to produce your own unique look. If you require flyout
-menus, create your own using a Spry menu, a menu widget from Adobe's
-Exchange or a variety of other javascript or CSS solutions.
+    <header>
+        <h1> Exercise 5 - CSS Layout </h1>
+    </header>
+    <div class="navigation">
+        <nav>
+            <ul>
+                <li>DeVille Coffee</li>
+                <li>Link two</li>
+                <li>Link three</li>
+                <li>Link four</li>
+            </ul>
+        </nav>
+        <article>
+            <p>The above links demonstrate a basic navigational structure using an unordered list styled with CSS. Use this as a starting point and modify the properties to produce your own unique look.
+                <br>
+                <br>If you require flyout menus, create your own using a Spry menu, a menu widget from Adobe's Exchange or a variety of other javascript or CSS solutions. If you would like the navigation along the top, simply move the ul.nav to the top of the page and recreate the styling.
+            </p>
+        </article>
+    </div>
+    <section>
+        <img class="left" src="https://cdn.pixabay.com/photo/2016/04/29/21/51/coffee-cup-1362013_960_720.jpg">
+        <h2>Instructions</h2>
+        <p> Be aware that the CSS for these layouts is heavily commented. If you do most of your work in Design view, have a peek at the code to get tips on working with the CSS for the fixed layouts. You can remove these comments before you launch your site. To learn more about the techniques used in these CSS Layouts, read this article at Adobe's Developer Center - <a href="http://www.adobe.com/go/adc_css_layouts">http://www.adobe.com/go/adc_css_layouts</a>.</p>
+        <img class="right" src="https://cdn.pixabay.com/photo/2016/04/29/21/51/coffee-cup-1362013_960_720.jpg">
 
-If you would like the navigation along the top, simply move the ul.nav
-to the top of the page and recreate the styling.
-
-
- </p>
-</article>
-<footer>
-	
-</footer>
+  
+        <h3>Clearing Method</h3>
+        <p>Because all the columns are floated, this layout uses a clear:both declaration in the .footer rule. This clearing technique forces the .container to understand where the columns end in order to show any borders or background colors you place on the nutellabun.container. If your design requires you to remove the .footer from the .container, you'll need to use a different clearing method. The most reliable will be to add a after your final floated column (but before the .container closes). This will have the same clearing effect.</p>
+        <h4>Logo Replacement</h4>
+        <p>An image placeholder was used in this layout in the .header where you'll likely want to place a logo. It is recommended that you remove the placeholder and replace it with your own linked logo.<br><br>Be aware that if you use the Property inspector to navigate to your logo image using the SRC field (instead of removing and replacing the placeholder), you should remove the inline background and display properties. These inline styles are only used to make the logo placeholder show up in browsers for demonstration purposes.<br><br>To remove the inline styles, make sure your CSS Styles panel is set to Current. Select the image, and in the Properties pane of the CSS Styles panel, right click and delete the display and background properties. (Of course, you can always go directly into the code and delete the inline styles from the image or placeholder there.)</p>
+        <h4>Backgrounds</h4>
+        <p>By nature, the background color on any div will only show for the length of the content. This means if you're using a background color or border to create the look of a side column, it won't extend all the way to the footer but will stop when the content ends. If the .content div will always contain more content, you can place a border on the .content div to divide it from the column.</p>
+    </section>
+    <footer>
+        <p>This .footer contains the declaration position:relative; to give Internet Explorer 6 hasLayout for the .footer and cause it to clear correctly. If you're not required to support IE6, you may remove it.</p>
+    </footer>
 </body>
+
 </html>

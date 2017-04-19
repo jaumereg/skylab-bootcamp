@@ -129,7 +129,7 @@ Elemento de linea: El tamaño viene dado por su contenido (no se puede cambiar)
 
 ####Box-sizing
 border
-box-sizing=border-box (respeta dimensiones de la caja)
+box-sizing: border-box (respeta dimensiones de la caja)
 
 ####Display
 display: block (convierte en elemento de bloque)
@@ -138,3 +138,24 @@ display: inline-block (convierte en híbrido, se pueden colocar en linea y ajust
 float: right/left (flota al lado indicado, el texto puede ir a su lado)
 clear: left/right/**both** (devuelve el natural float)
 
+####Box elements
+<section></section>
+<header></header>
+<figure></figure>
+<aside></aside>
+<table></table>
+<div></div>
+<h1></h1>
+<p></p>
+...
+
+####Inline elements
+<span></span>
+<a href=""></a>
+<strong></strong>
+<em></em>
+<img src="">
+
+####Mover elementos
+position: relative;
+top: 27px;
