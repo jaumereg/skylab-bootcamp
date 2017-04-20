@@ -8,6 +8,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+	font-family: Arial, sans-serif;
 	vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -39,5 +40,52 @@ table {
 	margin-left: 600px;
 	padding: 15px;
 	background: #E9F5FE;
+	color: #B1967C;
+	
 }
-
+.sidebar h2 {
+	color: #AFC5DA;
+	font-size: 30px;
+	border: none;
+} 
+.sidebar p {
+	font-size: 15px;
+}
+html {
+	background-color: #CDE6FF;	
+}
+h1 {
+	font-size: 45px;
+	font-weight: bold;
+	color: #B1967C;
+	margin: 0 0 10px 10px;
+}
+body {
+	width: 770px;
+	margin: 0 auto;
+	background-color: #CDE6FF;
+}
+.top {
+	color: navy;
+	font-family: Arial, sans-serif;
+	margin-left: 10px;
+}
+h2 {
+	color: orange;
+	font-family: "Times New Roman", serif;
+	font-size: 30px;
+	border-bottom: solid 4px white;
+	padding-bottom: 5px;
+}
+h2 img {
+	height: 30px;
+	width: 30px;
+	padding-right: 70px;
+}
+.paragraph {
+	color: grey;
+	margin: 10px 0 10px 100px;
+}
+p {
+	font-family: "Times New Roman";
+}

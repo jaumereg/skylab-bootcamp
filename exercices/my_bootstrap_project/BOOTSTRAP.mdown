@@ -1,0 +1,5 @@
+### BOOTSTRAP
+
+CDN: Red de servdores.
+
+Grid options: [http://getbootstrap.com/css/#grid-options](http://getbootstrap.com/css/#grid-options)
