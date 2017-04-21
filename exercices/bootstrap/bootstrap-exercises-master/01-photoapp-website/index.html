@@ -56,7 +56,6 @@
     .gamma {
         background: #1CAA98;
         color: white;
-        height: 400px;
         width: 100%;
     }
     
@@ -72,17 +71,47 @@
         display: block;
     }
     
-    .container .bottom-footer {
+    .bottom-footer{
         background: #333;
         color: white;
-        height: 80px;
         width: 100%;
+        margin: 0;
     }
     
     .bottom-footer ul {
-        display: inline-block;
+        display: inline-flex;
         list-style: none;
+        margin-bottom: 0;
     }
+    .bottom-footer ul li{
+        margin-left: 30px;
+
+    }
+    .bottom-footer .col-md-6 {
+    	margin: 25px 0 25px 0;
+    }
+    .bottom-footer p {
+    	padding-left: 100px;
+    	margin-bottom: 0;
+    }
+    .gamma img {
+    	margin: 60px;
+    }
+	.gamma-features {
+		padding: 60px 0 0 70px;
+	}
+	.gamma-features h3 {
+		font-size: 35px;
+		font-weight: bold;
+	}
+.gamma-features ul li {
+	font-size: 20px;
+	line-height: 35px;
+}
+.gamma-features ul{
+padding: 0;
+}
+
     </style>
 </head>
 
@@ -103,7 +132,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>
@@ -164,7 +193,9 @@
     </div>
     <footer>
         <div class="gamma">
+ <div class="container">
             <div class="col-md-6">
+<div class="gamma-features">
                 <h3>Gamma Features</h3>
                 <ul>
                     <li class="glyphicon glyphicon-ok"> suing</li>
@@ -174,26 +205,31 @@
                     <li class="glyphicon glyphicon-ok"> stunsail</li>
                 </ul>
             </div>
+            </div>
             <div class="col-md-6">
                 <img src="img/logo.png">
             </div>
+            </div>
         </div>
-        <div class="container">
-            <div class="row bottom-footer">
-                <div class="col-md-6">
-                    <ul>
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Contact</li>
-                        <li>Privacy Policy</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <p>Copyright © 2015, All Rights Reserved</p>
-                </div>
+        <div class="row bottom-footer">
+         <div class="container">
+            <div class="col-md-6">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <p>Copyright © 2015, All Rights Reserved</p>
+            </div>
             </div>
         </div>
     </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 
 </html>

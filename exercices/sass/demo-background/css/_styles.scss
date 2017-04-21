@@ -1,0 +1,57 @@
+$cover-image: 'http://68.media.tumblr.com/2c29bdc04afcdcc239f197255d6e79b1/tumblr_o8pukvRdhV1st5lhmo1_1280.jpg';
+
+$myApp-color-font: #FFF;
+$myApp-color-links: red;
+
+
+@mixin dialog-box($border-color) {
+  border: 10px solid $border-color;
+  padding: 10px;
+  box-shadow: 10px 10px 3px rgba(0,0,0,0.5);
+}
+
+
+%message {
+  padding: 30px;
+  background: blaçck;
+  color: white;
+  text-align: center;
+  font-family: Verdana
+}
+
+.cover {
+  height: 500px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: {
+    image: url($cover-image);
+    repeat: no-repeat;
+    size: cover;
+    position: center center;
+  }
+  h1 {
+    font-family: 'Amatic SC';  /*background: rgba(0,0,0,.2);*/
+    color: $myApp-color-font;
+    padding: 20px;
+    font-size: 100px;
+    text-shadow: 3px 3px 10px black;
+  }
+  a {
+    @include dialog-box(green);
+    display: block;
+    color: $myApp-color-links;
+    font-size: 50px;
+    text-decoration: none;
+    &:hover {
+      background: black;
+      color: white;
+    }
+    &.main {
+      color: red;
+    }
+  }
+
+}
