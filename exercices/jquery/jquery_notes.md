@@ -53,13 +53,23 @@ Insertar elementos en otro sitio
 // Moving elements using different approaches.
  
 // Make the first list item the last list item:
-var li = $( "#myList li:first" ).appendTo( "#myList" );
+var li = $( "#myList li:first" ).appendTo( "#myList" ); //appendTo / prependTo
  
 // Another approach to the same problem:
-$( "#myList" ).append( $( "#myList li:first" ) );
+$( "#myList" ).append( $( "#myList li:first" ) ); //append / prepend
 
 // Clone and move
 $( "#myList li:first" ).clone().appendTo( "#myList" );
+
+// Insert after
+var myNewElement = $( "<p>New element</p>" );
+ 
+myNewElement.insertAfter( "ul:last" );
+```
+
+Seleccionar:
+```
+Seleccionar y eliminar .eq(numero del elemento de la array).remove()
 ```
 
 De forma nativa:
