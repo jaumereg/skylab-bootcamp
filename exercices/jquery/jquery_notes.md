@@ -1,7 +1,5 @@
 Notes: [https://github.com/juanmaguitar/javascript-notes/tree/master/markdown-en/11-browser-environment](https://github.com/juanmaguitar/javascript-notes/tree/master/markdown-en/11-browser-environment)
 
-Bootstrap 3 Snippets
-
 JavaScript aplicado en el navegador web.
 `window.location.href` url que tiene el usuario cargado
 
@@ -77,8 +75,40 @@ De forma nativa:
 `document.getElementsByClassName('class-name')`
 `document.querySelector('#id-name')`
 
+Seleccionar elementos:
+[http://learn.jquery.com/using-jquery-core/traversing/](http://learn.jquery.com/using-jquery-core/traversing/)
 
+.parent() - Selecciona su padre
+.parents() - Selecciona todos sus padres
+.closest(div)- El padre div más cercano
+.children() - Todos los hijos
+.find(div) - Todos los div
+.next() - El siguiente hermano
+.prev()  El hermano anterior
+.nextAll() - Todos los hermanos siguientes
+.sublings() - Todos los hermanos
 
+###Eventos en el navegador
 
+Every action (click, change, …) happening in the browser is comunicated (to whom wants to listend) in the form of an event From Javascript we can escuchar these events and associate a function (event handler) that will be executed when the event occurs.
+```
+$("button").on('click', function()) {
+   console.log("The button has been clicked!") 
+})
+```
+How it works?
+![https://raw.githubusercontent.com/juanmaguitar/javascript-notes/master/markdown-en/12-events/img/events.png](https://raw.githubusercontent.com/juanmaguitar/javascript-notes/master/markdown-en/12-events/img/events.png)
 
+###Capturing events
+
+**.on() method**
+
+```
+$("a").on('click', function(event) {
+    event.preventDefault() //anula los enlaces
+    event.stopPropagation() //no se propaga hacia arriba
+    event.stopInmidiatePropagation()
+})
+```
+**Delegación de efectos**
 
