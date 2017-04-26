@@ -110,5 +110,6 @@ $("a").on('click', function(event) {
     event.stopInmidiatePropagation()
 })
 ```
-**Delegación de efectos**
+**Delegación de eventos - Event delegation**
 
+Se tiene que interactuar con el DOM lo menos posible ya que realentiza mucho.

@@ -52,3 +52,15 @@
   </script>
 </body>
 </html>
+
+// $('ul').on('click',function(e) {
+    //   e.preventDefault();
+    //   var $liParent = $(e.target).closest('li')
+    //   alert( $liParent.text() )
+    // })
+
+    $('ul').on('click', 'li', function(e) {
+      console.log(this)
+      e.preventDefault();
+      alert( $(this).text() )
+    })
