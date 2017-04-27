@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-controller='listController'>
+        <select ng-model="beatle" ng-change="showMsg()">
+        	<option ng-repeat="beatle in beatles">{{ beatle }}</option>
+        </select>
+        <p>{{ listBeatles }}</p>
+        <!-- <ul>
+            <li ng-repeat="beatle in beatles">{{ beatle }}</li>
+        </ul> -->
+    </div>
+    <script type="text/javascript">
+    angular.module('mainApp', [])
+        .controller('listController', function($scope) {
+            $scope.beatles = ['john', 'paul', 'george', 'ringo']
+        	$scope.showMsg = function(beatle){
+        	$scope.listBeatles = 'You have selected ' + $scope.beatle
+        	}
+        })
+    </script>
+</body>
+</html>
