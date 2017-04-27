@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>API beers</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style>
+    i {
+        margin-right: 10px;
+    }
+    
+    body {
+        background: #1C1C1F;
+    }
+    #beer-description {
+    	font-size: 15px;
+    }
+    .container-body {
+    	display: flex;
+    	justify-content: space-between;
+    }
+    .jumbotronPlus {
+    	width: 300px;
+    	margin: 20px;
+    }
+    #beer-type-container{
+    	margin: 20px;
+    }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <h3 class="text-muted">BeersApp 🍺</h3>
+        </div>
+        <div class="container-body">
+        <div id="search-container" class="jumbotron jumbotronPlus">
+            <h2>Search</h2>
+            <form action="" method="POST" class="form-inline" role="form">
+                <div class="form-group">
+                    <label class="sr-only" for="">label</label>
+                    <input type="text" class="form-control" id="beer-name" placeholder="Search for a beer" value="estrella">
+                </div>
+                <button type="submit" class="btn btn-primary btn-warning"><i class="glyphicon glyphicon-search"></i>Search</button>
+            </form>
+        </div>
+        <div id="beer-brand-container" class="jumbotron jumbotronPlus hidden">
+            <h2>Select</h2>
+            <select id="brand-selection"></select>
+        </div>
+        <div id="beer-type-container" class="jumbotron hidden">
+            <h2>Description</h2>
+            <p id="beer-description"></p><img id="beer-image" src=" "><p id="error"></p>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript">
+    $('#search-container').on('click', function(event) {
+        event.preventDefault()
+        var $nameBeer = $('#beer-name').val()
+        var urlBeerTpl = 'https://quiet-inlet-67115.herokuapp.com/api/search/all?q=<%QUERY%>'
+        $.ajax({
+            url: urlBeerTpl.replace('<%QUERY%>', $nameBeer),
+            success: function(data) {
+                var beerFound = data
+                console.log(data)
+                var optionsBeer = '<option disabled selected>Select a beer</option>'
+                beerFound.forEach(function(beerData) {
+                    optionsBeer += '<option value="' + beerData.id + '">' + beerData.name + '</option>'
+                })
+                $('#brand-selection').html(optionsBeer)
+                $('#beer-type-container').addClass('hidden')
+                $('#beer-brand-container').removeClass('hidden')
+            }
+        })
+
+    })
+    $('#brand-selection').on('change', function() {
+        var $brandBeer = $(this).val()
+        var urlBeerInfoTpl = 'https://quiet-inlet-67115.herokuapp.com/api/beer/<%ID-BEER%>'
+        $.ajax({
+            url: urlBeerInfoTpl.replace('<%ID-BEER%>', $brandBeer),
+            success: function(data) {
+            	console.log(data)
+                var descriptonFound = data.style.description
+                var beerImage = ''
+                if (data.labels) {
+                	beerImage = data.labels.medium
+                	$('#error').text('') 
+                } else { 
+                	beerImage = ''
+                	$('#error').text('(Imagen no disponible)') 
+                }
+                $('#beer-description').text(descriptonFound)
+                $('#beer-type-container').removeClass('hidden')
+				$('#beer-image').attr('src', beerImage)
+
+            }
+
+        })
+    })
+    </script>
+</body>
+
+</html>

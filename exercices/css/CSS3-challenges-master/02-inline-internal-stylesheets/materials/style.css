@@ -11,9 +11,9 @@ body {
   background-color: #E1EDEB;
 }
 h1 {
-  font-family: 'Gravitas One', 'Arial Black', serif;
+  font-family: Verdana;
   font-weight: normal;
-	color: #666666;
+	color: black;
 	font-size: 3em;
   margin: 0;
 }
