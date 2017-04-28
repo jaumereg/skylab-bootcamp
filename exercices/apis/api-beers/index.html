@@ -18,15 +18,24 @@
     }
     .container-body {
     	display: flex;
-    	justify-content: space-between;
+    	justify-content: flex-start;
     }
     .jumbotronPlus {
     	width: 300px;
-    	margin: 20px;
+    	margin: 20px;;
+    }
+    .jumbotron {
+    	background: #EC971F
     }
     #beer-type-container{
     	margin: 20px;
     }
+    .btn-sm {
+    	display: block;
+    	margin: 15px auto;
+    }
+    .text-muted {
+    	color: #EC971F;
     }
     </style>
 </head>
@@ -44,7 +53,7 @@
                     <label class="sr-only" for="">label</label>
                     <input type="text" class="form-control" id="beer-name" placeholder="Search for a beer" value="estrella">
                 </div>
-                <button type="submit" class="btn btn-primary btn-warning"><i class="glyphicon glyphicon-search"></i>Search</button>
+                <button type="submit" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-search"></i>Search</button>
             </form>
         </div>
         <div id="beer-brand-container" class="jumbotron jumbotronPlus hidden">
