@@ -5,8 +5,8 @@ var url = process.argv[2]
 
 http.get(url, function(res) {
     res.pipe(bl(function(err, data) {
-    	if (err) throw err
-    		console.log(data.toString().split('').length)
-    	console.log(data.toString())
+        if (err) throw err
+        console.log(data.toString() /*.split('')*/ .length)
+        console.log(data.toString())
     }))
 })
