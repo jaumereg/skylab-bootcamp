@@ -1,9 +1,15 @@
 var fs = require('fs')
 var path = require('path')
 
-var files = fs.readdir(process.argv[2], function(err, files) {
+var pathToList = process.argv[2]
+var extensionToFind = '.' + process.argv[3]
+
+fs.readdir(pathToList, function(err, listFile) {
     if (err) throw err
-	files.filter(function(items) {
-		return (path.extname(items)) = process.argv[3]
-	})
+    listFile
+        .forEach(function(fileName) {
+            if (path.extname(fileName) === extensionToFind) {
+                console.log(fileName)
+            }
+        })
 })
