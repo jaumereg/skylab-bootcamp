@@ -17,12 +17,12 @@
 
 function numberNames(a = 0) {
 
-    var units = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve']
+    var units = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fiveteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
     var tens = ['ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
     var aString = a.toString()
     var firstNumber = parseInt(aString[0]) - 1
     var secondNumber = parseInt(aString[1]) - 1
-    var thirdNumber = parseInt(aString[1]) - 1
+    var thirdNumber = parseInt(aString[2]) - 1
     if (typeof a === 'string') return 'error'
     if (a === 0) return 'zero'
     if (a >= 100 && a < 1000) {
@@ -32,13 +32,15 @@ function numberNames(a = 0) {
         if (aString[2] === '0') {
             return (units[firstNumber] + ' hundred and ' + tens[secondNumber])
         }
+        else {
+            return (units[firstNumber] + ' hundred and ' + tens[secondNumber] + units[thirdNumber])
+        }
     }
-    if (a > 12 && a < 100) {
+    if (a > 19 && a < 100) {
         if (aString[1] === '0') {
             return (tens[firstNumber])
-        } else if (a < 20) {
-            return (units[secondNumber] + 'teen')
-        } else {
+        }
+        else {
             return (tens[firstNumber] + units[secondNumber])
         }
     }

@@ -39,4 +39,18 @@ describe('Results', function() {
             expect(result).toBe('twentyfive')
         })
     })
+    describe('Hundreds', function() {
+        it('should return one hundred when enter 100 as argument', function() {
+            var result = numberNames(100)
+            expect(result).toBe('one hundred')
+        })
+        // it('should return fiveteen when enter 15 as argument', function() {
+        //     var result = numberNames(15)
+        //     expect(result).toBe('fiveteen')
+        // })
+        // it('should return twentyfive when enter 25 as argument', function() {
+        //     var result = numberNames(25)
+        //     expect(result).toBe('twentyfive')
+        // })
+    })
 })
