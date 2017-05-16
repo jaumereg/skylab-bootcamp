@@ -10,4 +10,4 @@ app.get('', (req, res) => {
 	res.render('index', {titlePage: 'Title'})
 })
 
-app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`))
+app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`)) 
