@@ -7,7 +7,7 @@ app.set('view engine', 'pug')
 app.use(express.static('public'))
 
 app.get('', (req, res) => {
-	res.render('index', {titlePage: 'James da baus'})
+	res.render('index', {titlePage: 'Title'})
 })
 
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`))

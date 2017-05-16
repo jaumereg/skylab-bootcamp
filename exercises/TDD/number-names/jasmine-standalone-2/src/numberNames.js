@@ -11,39 +11,60 @@
 //              twelve thousand,
 //              six hundred and three
 
-// [Source http://rosettacode.org]
+var units = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+var tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+var teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
 
+function convertMillions(a){
+    if (a >= 1000000 && a % 1000000 !== 0){
+        return convertMillions(Math.floor(a / 1000000)) + " million, " + convertThousands(a % 1000000);
+    }
+    else if (a >= 1000000){
+        return convertMillions(Math.floor(a / 1000000)) + " million"
+    }
+    else {
+        return convertThousands(a);
+    }
+}
 
+function convertThousands(a){
+    if (a >= 1000 && a % 1000 !== 0){
+        return convertHundreds(Math.floor(a / 1000)) + " thousand, " + convertHundreds(a % 1000);
+    }
+    else if (a >= 1000){
+        return convertHundreds(Math.floor(a / 1000)) + " thousand"
+    }
+    else {
+        return convertHundreds(a);
+    }
+}
 
-function numberNames(a = 0) {
+function convertHundreds(a) {
+    if (a >= 100 && a % 100 !== 0) {
+        return units[Math.floor(a / 100)] + " hundred and " + convertTens(a % 100);
+    } 
+    else if (a >= 100) {
+        return units[Math.floor(a / 100)] + " hundred"
+    }
+    else {
+        return convertTens(a);
+    }
+}
 
-    var units = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fiveteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
-    var tens = ['ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
-    var aString = a.toString()
-    var firstNumber = parseInt(aString[0]) - 1
-    var secondNumber = parseInt(aString[1]) - 1
-    var thirdNumber = parseInt(aString[2]) - 1
+function convertTens(a) {
+    if (a < 10) return units[a]
+    else if (a < 20) return teens[a - 10]
+    else if (a % 10 !== 0){
+        return tens[Math.floor(a / 10)] + " " + units[a % 10]
+    } 
+    else {
+        return tens[Math.floor(a / 10)]
+    }
+
+}
+
+function numberNames(a=0) {
     if (typeof a === 'string') return 'error'
     if (a === 0) return 'zero'
-    if (a >= 100 && a < 1000) {
-    	if (aString[1] === '0' && aString[2] === '0') {
-            return (units[firstNumber] + ' hundred')
-        }
-        if (aString[2] === '0') {
-            return (units[firstNumber] + ' hundred and ' + tens[secondNumber])
-        }
-        else {
-            return (units[firstNumber] + ' hundred and ' + tens[secondNumber] + units[thirdNumber])
-        }
-    }
-    if (a > 19 && a < 100) {
-        if (aString[1] === '0') {
-            return (tens[firstNumber])
-        }
-        else {
-            return (tens[firstNumber] + units[secondNumber])
-        }
-    }
-
-    return units[a - 1]
+    else return convertMillions(a)
 }
