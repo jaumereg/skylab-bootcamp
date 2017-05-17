@@ -10,9 +10,15 @@
 **CURL, POSTMAN**
 
 #FIRST STEPS
-npm init -y
+npm init -y --> package.json
+npm install express --save --> instala y añade al package.json
+```
+const express = require('express')
+const app = express()
+```
+
 touch .bowerrc
-npm install express --save
+
 bower init
 bower install pug --save
 bower install bootstrap --save
