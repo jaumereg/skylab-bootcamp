@@ -6,6 +6,7 @@ const fileStore = require('session-file-store')(session)
 const app = express()
 const PORT = 3000
 
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false}))
 
 app.set('view engine', 'pug')
@@ -28,8 +29,22 @@ app.get('/list', (req, res) => {
 })
 
 app.post('/list', (req, res) => {
-	req.session.list.push(req.body)
+  const { item } = req.body
+  const newItem = { item }
+  newItem.id = req.session.list.length + 1
+
+	req.session.list.push(newItem)
 	res.render('list', { list: req.session.list })
+})
+
+app.delete('/list/:id', (req, res) => {
+  const id = +req.params.id
+
+  req.session.list = req.session.list.filter(item => {
+    return item.id !== id
+  })
+
+  res.status(200).send('Item was removed succesfully!')
 })
 
 

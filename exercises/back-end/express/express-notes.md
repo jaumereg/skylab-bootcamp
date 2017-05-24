@@ -20,5 +20,4 @@ const app = express()
 touch .bowerrc
 
 bower init
-bower install pug --save
 bower install bootstrap --save

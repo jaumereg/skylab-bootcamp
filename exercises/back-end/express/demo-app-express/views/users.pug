@@ -1,0 +1,15 @@
+link(href="bower_components/bootsrap/dist/css/bootstrap.css", rel="stylesheet")
+
+form(action='/users', method='POST')
+	label Name:
+	input(name="username", type="text")
+	button Say hi to me!
+
+h3 List of names
+ul
+	each name in names
+		li  #{name} 
+			a(href="#") [x]
+
+script(src="bower_components/jquery/dist/jquery.js")
+script(src="js/main.js")

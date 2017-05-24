@@ -1,9 +1,15 @@
 const express = require('express')
 const session = require('express-session')
+const bodyParser = require('body-parser')
 const FileStore = require('session-file-store')(session)
 
 const app = express()
 const PORT = 3000
+
+app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: false }))
+
+app.set('view engine', 'pug')
 
 app.use(session({
   name: 'james-server-session-cookie-id',
@@ -14,12 +20,33 @@ app.use(session({
 }))
 
 app.use((req, res, next) => {
-  req.session.counter = ++req.session.counter || 0
+  req.session.cart = req.session.cart || []
   next()
 })
 
-app.get('/', (req, res) => {
-  res.send(`You have visited this site ${req.session.counter} times`)
+app.get('/cart', (req, res) => {
+  res.render('cart', { cart: req.session.cart })
+})
+
+app.post('/cart', (req, res) => {
+  const { item, quantity } = req.body
+  const newItem = { item, quantity }
+  newItem.id = req.session.cart.length + 1
+
+  req.session.cart.push(newItem)
+
+  res.render('cart', { cart: req.session.cart })
+})
+
+app.delete('/cart/:id', (req, res) => {
+  const id = +req.params.id
+
+  req.session.cart = req.session.cart.filter(item => {
+    return item.id !== id
+  })
+
+  res.status(200).send('Item was removed succesfully!')
 })
 
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`))
+

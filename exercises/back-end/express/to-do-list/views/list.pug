@@ -1,10 +1,17 @@
 link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7', crossorigin='anonymous')
 
+head
+	title To Do List
 
-form(action='/list', method='POST')
-	input(type='text', name='item')
-	button Add to List!
+body
+	.container
+		form.form-inline(action='/list', method='POST')
+			input.form-control(type='text', name='item')
+			button.btn.btn-success Add to List!
+		ul
+			each item in list
+				li #{item.item}
+					a(href=`/list/${item.id}`) X
 
-ul
-	each item in list
-		li #{item.item}
+script(src="https://code.jquery.com/jquery-2.x-git.js")
+script(src="js/main.js")

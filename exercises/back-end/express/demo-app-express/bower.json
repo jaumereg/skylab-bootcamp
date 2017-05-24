@@ -1,0 +1,21 @@
+{
+  "name": "demo-app-express",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Jaume Regas <jaumeregas1@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/jaumereg/skylab-bootcamp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7"
+  }
+}
